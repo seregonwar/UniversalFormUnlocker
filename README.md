@@ -21,6 +21,11 @@ This script is designed to unlock and enhance all disabled fields on any website
    - **Purpose**: Enable and enhance all disabled elements on the page.
    - **Behavior**: Selects all elements with `disabled` or `readonly` attributes, iterates over them, enables each one, and adds necessary event listeners. Logs a confirmation message to the console when done.
 
+4. **removePopups()**
+
+   - **Purpose**: Remove or hide popup elements that interfere with user interaction.
+   - **Behavior**: Selects popup elements based on their common CSS classes and removes them from the DOM. Logs a message for each removed popup and a confirmation message when done.
+
 #### Usage
 
 To use this script:
@@ -33,16 +38,21 @@ The script will automatically find and enable all disabled and read-only fields 
 
 #### Example
 
-Suppose you have a form with disabled input fields and buttons like this:
+Suppose you have a form with disabled input fields, buttons, and a popup message like this:
 
 ```html
 <form>
     <input type="text" id="name" disabled value="John Doe">
     <button id="submitBtn" disabled>Submit</button>
 </form>
+<div class="absolute right-0 z-10 mt-2 w-64 rounded-lg border bg-token-main-surface-primary p-3 text-sm shadow-lg">
+    <p class="mb-2">Upgrade to ChatGPT Plus to create and share your GPTs</p>
+    <button class="btn relative btn-secondary btn-small">Upgrade to Plus</button>
+</div>
+
 ```
 
-After running the script, these fields will be enabled and interactive, and any changes to their values will be logged in the console.
+After running the script, these fields will be enabled and interactive, and the popup will be removed, allowing for smooth user interaction.
 
 ### Conclusion
 

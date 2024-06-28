@@ -54,6 +54,35 @@
         // Confirmation message
         console.log('All interfering popups have been removed.');
     }
+    // Rimuovi il blur da tutti gli elementi e ripristina la visibilità
+document.querySelectorAll('*').forEach(element => {
+    element.style.filter = 'none';
+    element.style.webkitFilter = 'none';
+    element.style.backdropFilter = 'none';
+    element.style.visibility = 'visible';
+    element.style.opacity = '1';
+});
+
+// Nascondi la limitazione popup
+document.querySelectorAll('.limit-popup').forEach(element => {
+    element.style.display = 'none';
+});
+
+// Rimuovi eventuali overlay che potrebbero impedire l'interazione con la pagina
+document.querySelectorAll('div').forEach(element => {
+    if (getComputedStyle(element).position === 'fixed' || getComputedStyle(element).position === 'absolute') {
+        element.style.display = 'none';
+    }
+});
+
+// Rimuovi classi specifiche che potrebbero applicare effetti di blur
+document.querySelectorAll('[class]').forEach(element => {
+    element.classList.forEach(className => {
+        if (className.includes('blur')) {
+            element.classList.remove(className);
+        }
+    });
+});
 
     // Execute the functions to enable and enhance all disabled elements and remove popups
     enableAndEnhanceAllDisabledElements();
